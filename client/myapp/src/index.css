@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.dark .ql-toolbar {
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+.dark .ql-toolbar .ql-picker-item,
+.dark .ql-toolbar .ql-stroke {
+  color: #e2e8f0 !important;
+  stroke: #e2e8f0 !important;
+}
+
+.dark .ql-container {
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+.dark .ql-container.ql-snow {
+  border-color: #4a5568;
+}
+
+
