@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
-    "build": "npm install",    
-    "vercel-build": "npm run build"  
+    "build": "npm install",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
