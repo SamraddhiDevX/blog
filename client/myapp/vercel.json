@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "src/index.js",
+        "src": "myapp/package.json",
         "use": "@vercel/static-build"
       }
     ],
-    "rewrites": [
+    "routes": [
       {
-        "source": "/(.*)",
-        "destination": "/index.html"
+        "src": "/(.*)",
+        "dest": "/myapp/build/$1"
       }
     ]
   }
