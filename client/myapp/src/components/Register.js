@@ -29,7 +29,7 @@ const Register = () => {
    
   const checkUsernameAvailability = async (username) => {
     try {
-      const response = await fetch('http://localhost:4000/check-username', {
+      const response = await fetch(`${process.env.React_APP_BACKEND_BASEURL}/check-username`, {
         method: 'POST', // Using POST method to send username in the body
         body: JSON.stringify({ username }), // Sending the username in the body
         headers: { 'Content-Type': 'application/json' },
@@ -53,12 +53,12 @@ const Register = () => {
 
   const  handleRegister = async(e) => {
     e.preventDefault();
-    
+
     const isUsernameAvailable = await checkUsernameAvailability(username);
       if (!isUsernameAvailable) return; // Stop form submission if username is taken
 
     if (validateForm()) {
-   const response= await fetch('http://localhost:4000/register',{
+   const response= await fetch(`${process.env.React_APP_BACKEND_BASEURL}/register`,{
       method:'POST',
       body: JSON.stringify({username,password}),
       headers:{'Content-Type':'application/json'},

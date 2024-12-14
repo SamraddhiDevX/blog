@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
 try {
-  const response=  await fetch('http://localhost:4000/login',{
+  const response=  await fetch(`${process.env.React_APP_BACKEND_BASEURL}/login`,{
     method:'POST',
     body:JSON.stringify({username,password}),
     headers:{'Content-Type':'application/json'},

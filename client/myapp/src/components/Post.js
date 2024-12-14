@@ -8,7 +8,7 @@ const Post = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:4000/post').then(response => {
+    fetch(`${process.env.React_APP_BACKEND_BASEURL}/post`).then(response => {
       response.json().then(posts => {
         setPosts(posts);
         setFilteredPosts(posts); // Initialize filtered posts
