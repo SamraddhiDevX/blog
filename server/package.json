@@ -1,4 +1,11 @@
 {
+  "name": "-myapp",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js",
+    "build": "npm install",    
+    "vercel-build": "npm run build"  
+  },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.5.1",
