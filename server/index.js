@@ -14,8 +14,8 @@ const salt = bcrypt.genSaltSync(10);
 const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI;
 const secretKey = process.env.SECRET_KEY;
-
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+const frontendurl=process.env.FRONTEND_URL;
+app.use(cors({ credentials: true, origin: `${frontendurl}` }));
 app.use(express.json());
 app.use(cookieParser());
 
