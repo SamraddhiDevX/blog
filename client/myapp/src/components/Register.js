@@ -29,7 +29,7 @@ const Register = () => {
    
   const checkUsernameAvailability = async (username) => {
     try {
-      const response = await fetch(`${process.env.React_APP_BACKEND_BASEURL}/check-username`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/check-username`, {
         method: 'POST', // Using POST method to send username in the body
         body: JSON.stringify({ username }), // Sending the username in the body
         headers: { 'Content-Type': 'application/json' },

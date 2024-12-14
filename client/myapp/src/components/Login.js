@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../context/UserContext";
@@ -10,11 +10,13 @@ const Login = () => {
   const [redirect, setRedirect] = useState(false);
  const {setUserinfo} = useContext(UserContext);
 
+
+ 
   const handleLogin = async(e) => {
     e.preventDefault();
 
 try {
-  const response=  await fetch(`${process.env.React_APP_BACKEND_BASEURL}/login`,{
+  const response=  await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/login`,{
     method:'POST',
     body:JSON.stringify({username,password}),
     headers:{'Content-Type':'application/json'},

@@ -15,7 +15,7 @@ const CreatePostPage = () => {
     const { userinfo } = useContext(UserContext);
   
     useEffect(() => {
-      fetch(`${process.env.React_APP_BACKEND_BASEURL}/post/${id}`).then(response => {
+      fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/post/${id}`).then(response => {
         response.json().then(postinfo => {
           setPostInfo(postinfo);
         });

@@ -76,7 +76,7 @@ function CreatePost() {
         category,
       };
 
-      const response = await fetch(`${process.env.React_APP_BACKEND_BASEURL}/post`, {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/post`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

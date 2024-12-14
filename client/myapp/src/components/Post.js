@@ -8,7 +8,7 @@ const Post = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
-    fetch(`${process.env.React_APP_BACKEND_BASEURL}/post`).then(response => {
+    fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/post`).then(response => {
       response.json().then(posts => {
         setPosts(posts);
         setFilteredPosts(posts); // Initialize filtered posts
@@ -24,6 +24,7 @@ const Post = () => {
       return matchesQuery && matchesCategory;
     });
     setFilteredPosts(filtered);
+    console.log(filtered);
   }, [searchQuery, selectedCategory, posts]);
 
   return (

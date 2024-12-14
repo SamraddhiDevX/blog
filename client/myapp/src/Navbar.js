@@ -7,7 +7,7 @@ const Navbar = () => {
   const { userinfo, setUserinfo } = useContext(UserContext);
 
   useEffect(() => {
-    fetch(`${process.env.React_APP_BACKEND_BASEURL}/profile`, {
+    fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/profile`, {
       credentials: 'include',
     }).then((response) => {
       response.json().then((userInfo) => {
@@ -17,7 +17,7 @@ const Navbar = () => {
   }, []);
 
   function logout() {
-    fetch(`${process.env.React_APP_BACKEND_BASEURL}/logout`, {
+    fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/logout`, {
       credentials: 'include',
       method: 'POST',
     });

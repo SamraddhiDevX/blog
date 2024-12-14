@@ -44,7 +44,7 @@ function EditPost() {
   const [redirect, setRedirect] = useState(false);
   const [loading, setLoading] = useState(false); // Loading state for image upload
 
-  const API_URL = `${process.env.React_APP_BACKEND_BASEURL}`; // Use environment variable
+  const API_URL = `${process.env.REACT_APP_BACKEND_BASEURL}`; // Use environment variable
 
   // Upload file to Cloudinary
   async function uploadToCloudinary(file) {

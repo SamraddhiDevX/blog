@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI;
 const secretKey = process.env.SECRET_KEY;
 const frontendurl=process.env.FRONTEND_URL;
-app.use(cors({ credentials: true, origin: `${frontendurl}` }));
+app.use(cors({ credentials: true, origin:frontendurl }));
 app.use(express.json());
 app.use(cookieParser());
 
