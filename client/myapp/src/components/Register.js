@@ -58,7 +58,8 @@ const Register = () => {
       if (!isUsernameAvailable) return; // Stop form submission if username is taken
 
     if (validateForm()) {
-   const response= await fetch(`${process.env.React_APP_BACKEND_BASEURL}/register`,{
+      console.log(`${process.env.REACT_APP_BACKEND_BASEURL}/register`);
+   const response= await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/register`,{
       method:'POST',
       body: JSON.stringify({username,password}),
       headers:{'Content-Type':'application/json'},
