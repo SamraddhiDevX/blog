@@ -11,7 +11,23 @@ const Login = () => {
  const {setUserinfo} = useContext(UserContext);
 
 
- 
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/config-check`); // Adjust this URL based on deployment setup
+        if (!response.ok) {
+          throw new Error("Failed to fetch configuration data");
+        }
+        const data = await response.json();
+        console.log(data); // Save the configuration data in state
+      } catch (err) {
+        setError(err.message); // Save error message in state
+      }
+    };
+
+    fetchConfig();
+  }, []);
+  
   const handleLogin = async(e) => {
     e.preventDefault();
 
