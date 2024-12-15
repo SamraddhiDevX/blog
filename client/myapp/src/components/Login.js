@@ -21,7 +21,7 @@ const Login = () => {
         const data = await response.json();
         console.log(data); // Save the configuration data in state
       } catch (err) {
-        setError(err.message); // Save error message in state
+        console.log(err.message); // Save error message in state
       }
     };
 
