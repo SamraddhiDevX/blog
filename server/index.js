@@ -15,9 +15,24 @@ const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI;
 const secretKey = process.env.SECRET_KEY;
 const frontendurl=process.env.FRONTEND_URL;
-app.use(cors({ credentials: true, origin:frontendurl }));
+
 app.use(express.json());
 app.use(cookieParser());
+const allowedOrigins = [
+  'http://localhost:3000', // For local development
+  'https://blog-1-db2a.onrender.com' // Deployed frontend
+];
+
+app.use(cors({
+  credentials: true,
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+}));
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

@@ -120,11 +120,12 @@ const Register = () => {
         <p>
           Already have an account?{' '}
           <Link to="/login" className="text-blue-500 hover:underline">
-            Login here
+            Log here
           </Link>
         </p>
       </div>
     </div>
+           
   </div>
 );
 };
