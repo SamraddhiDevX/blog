@@ -16,8 +16,9 @@ const MONGO_URI = process.env.MONGO_URI;
 const secretKey = process.env.SECRET_KEY;
 const frontendurl=process.env.FRONTEND_URL;
 
-app.use(express.json());
 app.use(cookieParser());
+app.use(express.json());
+
 const allowedOrigins = [
   'http://localhost:3000', // For local development
   'https://blog-1-db2a.onrender.com' // Deployed frontend
@@ -74,9 +75,10 @@ app.post('/login', async (req, res) => {
         if (err) throw err;
         res.cookie('token', token,{
           httpOnly:true,
-          sameSite:'None',
+          sameSite:'none',
           secure:true,
-          domain: 'onrender.com',
+          path:'/',
+          domain: '.onrender.com',
         }).json({
           id: userDoc._id,
           username
@@ -107,6 +109,7 @@ app.post('/check-username', async (req, res) => {
 
 app.get('/profile', (req, res) => {
   const { token } = req.cookies;
+  console.log('Token received:', token); 
   if (!token) {
     return res.status(401).json({ message: "Authentication token is missing" });
   }
