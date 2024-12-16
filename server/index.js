@@ -72,7 +72,10 @@ app.post('/login', async (req, res) => {
     if (passOk) {
       jwt.sign({ username, id: userDoc._id }, process.env.SECRET_KEY, {}, (err, token) => {
         if (err) throw err;
-        res.cookie('token', token).json({
+        res.cookie('token', token,{
+          httpOnly:true,
+          sameSite:'None',
+        }).json({
           id: userDoc._id,
           username
         });
@@ -119,10 +122,13 @@ app.post('/logout', (req, res) => {
 app.post('/post', async (req, res) => {
   const { title, summary, content, fileUrl, category } = req.body;
   const { token } = req.cookies;
-
+   
+  if(!token){
+    return res.status(401).json({message:'Authentication is missing'});
+  }
   jwt.verify(token, secretKey, {}, async (err, info) => {
-    if (err) throw err;
-
+    if (err) return res.status(403).json({message:'Invalid token'});
+    try{
     const postDoc = await Post.create({
       title,
       summary,
@@ -132,6 +138,10 @@ app.post('/post', async (req, res) => {
       author: info.id,
     });
     res.json(postDoc);
+  }
+  catch(error){
+     res.status(500).json({message:'Error creating post',error})
+  }
   });
 });
 
