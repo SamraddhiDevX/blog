@@ -76,6 +76,7 @@ app.post('/login', async (req, res) => {
           httpOnly:true,
           sameSite:'None',
           secure:true,
+          domain: '.onrender.com',
         }).json({
           id: userDoc._id,
           username
