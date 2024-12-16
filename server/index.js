@@ -75,6 +75,7 @@ app.post('/login', async (req, res) => {
         res.cookie('token', token,{
           httpOnly:true,
           sameSite:'None',
+          secure:true,
         }).json({
           id: userDoc._id,
           username
@@ -122,7 +123,7 @@ app.post('/logout', (req, res) => {
 app.post('/post', async (req, res) => {
   const { title, summary, content, fileUrl, category } = req.body;
   const { token } = req.cookies;
-   
+   console.log('recieved',token);
   if(!token){
     return res.status(401).json({message:'Authentication is missing'});
   }
