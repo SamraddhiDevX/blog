@@ -77,7 +77,7 @@ app.post('/login', async (req, res) => {
           httpOnly:true,
           sameSite:'none',
           secure:true,
-          path:'/',
+         
         }).json({
           id: userDoc._id,
           username
